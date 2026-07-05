@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AI 与 STEAM 创新课程</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 首屏 -->
+  <section id="hero" class="hero">
+    <div class="hero-inner">
+      <p class="hero-label" id="siteName"></p>
+      <h1 class="hero-title" id="siteSlogan"></h1>
+      <p class="hero-tagline" id="siteTagline"></p>
+      <div class="hero-actions">
+        <a href="#courses" class="btn btn-outline">了解课程</a>
+        <a href="#register" class="btn btn-primary">立即报名</a>
+      </div>
+      <a href="#about" class="scroll-hint" aria-label="向下滚动">
+        <span class="scroll-arrow"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- AI & STEAM 简介 -->
+  <section id="about" class="section about">
+    <div class="container">
+      <h2 class="section-title">关于 AI &amp; STEAM 课程</h2>
+      <div class="about-text" id="aboutText"></div>
+      <div class="feature-grid" id="featureGrid"></div>
+    </div>
+  </section>
+
+  <!-- 课程列表 -->
+  <section id="courses" class="section courses">
+    <div class="container">
+      <h2 class="section-title">精选课程</h2>
+      <p class="section-desc">点击课程卡片查看详细介绍</p>
+      <div class="course-list" id="courseList"></div>
+    </div>
+  </section>
+
+  <!-- 报名表单 -->
+  <section id="register" class="section register">
+    <div class="container">
+      <h2 class="section-title">课程报名</h2>
+      <p class="section-desc">填写以下信息，我们将尽快与您联系</p>
+      <form id="registerForm" class="form" novalidate>
+        <div class="form-group">
+          <label for="regName">姓名 <span class="required">*</span></label>
+          <input type="text" id="regName" name="name" placeholder="请输入姓名" autocomplete="name">
+          <span class="field-error" data-for="regName"></span>
+        </div>
+        <div class="form-group">
+          <label for="regPhone">联系电话 <span class="required">*</span></label>
+          <input type="tel" id="regPhone" name="phone" placeholder="请输入手机号" autocomplete="tel">
+          <span class="field-error" data-for="regPhone"></span>
+        </div>
+        <div class="form-group">
+          <label for="regEmail">邮箱</label>
+          <input type="email" id="regEmail" name="email" placeholder="选填" autocomplete="email">
+          <span class="field-error" data-for="regEmail"></span>
+        </div>
+        <div class="form-group">
+          <label for="regGrade">学员年龄 / 年级 <span class="required">*</span></label>
+          <input type="text" id="regGrade" name="grade" placeholder="例如：10 岁 / 小学四年级">
+          <span class="field-error" data-for="regGrade"></span>
+        </div>
+        <div class="form-group">
+          <label for="regCourse">意向课程 <span class="required">*</span></label>
+          <select id="regCourse" name="course">
+            <option value="">请选择课程</option>
+          </select>
+          <span class="field-error" data-for="regCourse"></span>
+        </div>
+        <div class="form-group">
+          <label for="regNote">备注</label>
+          <textarea id="regNote" name="note" rows="3" placeholder="其他需求或问题（选填）"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="regSubmitBtn">提交报名</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 留言反馈 -->
+  <section id="feedback" class="section feedback">
+    <div class="container">
+      <h2 class="section-title">体验反馈</h2>
+      <p class="section-desc">您的意见对我们非常重要，欢迎分享使用体验</p>
+      <form id="feedbackForm" class="form" novalidate>
+        <div class="form-group">
+          <label for="fbName">姓名</label>
+          <input type="text" id="fbName" name="name" placeholder="选填">
+        </div>
+        <div class="form-group">
+          <label for="fbContact">联系方式</label>
+          <input type="text" id="fbContact" name="contact" placeholder="手机或邮箱（选填）">
+        </div>
+        <div class="form-group">
+          <label>体验评分 <span class="required">*</span></label>
+          <div class="rating-group" id="ratingGroup">
+            <button type="button" class="rating-btn" data-value="1">1</button>
+            <button type="button" class="rating-btn" data-value="2">2</button>
+            <button type="button" class="rating-btn" data-value="3">3</button>
+            <button type="button" class="rating-btn" data-value="4">4</button>
+            <button type="button" class="rating-btn" data-value="5">5</button>
+          </div>
+          <span class="field-error" data-for="rating"></span>
+        </div>
+        <div class="form-group">
+          <label for="fbMessage">留言内容 <span class="required">*</span></label>
+          <textarea id="fbMessage" name="message" rows="4" placeholder="请分享您的课程体验或建议"></textarea>
+          <span class="field-error" data-for="fbMessage"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="fbSubmitBtn">提交反馈</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-name" id="footerName"></p>
+      <p id="footerPhone"></p>
+      <p id="footerEmail"></p>
+      <p id="footerAddress"></p>
+      <p class="footer-copy">&copy; 2026 智创未来教育 · AI &amp; STEAM 课程</p>
+    </div>
+  </footer>
+
+  <!-- 课程详情层 -->
+  <div class="overlay" id="courseOverlay" aria-hidden="true">
+    <div class="overlay-backdrop" id="overlayBackdrop"></div>
+    <div class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <button class="detail-close" id="detailClose" aria-label="关闭">&times;</button>
+      <div class="detail-content" id="detailContent"></div>
+    </div>
+  </div>
+
+  <!-- Toast 提示 -->
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script src="courses.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
