@@ -3,14 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>AI 与 STEAM 创新课程</title>
+  <title>AI 与 STEAM 创新课程 | 智创未来教育</title>
+
+  <!-- Open Graph 已配置：EduAI-STEAM / EduAI -->
+  <meta name="description" content="培养面向未来的科技创新人才。了解 AI 与 STEAM 课程详情，欢迎在线报名与体验反馈。">
+  <link rel="canonical" href="https://eduai-steam.github.io/EduAI/h5/">
+
+  <!-- Open Graph（微信分享卡片） -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI 与 STEAM 创新课程 | 智创未来教育">
+  <meta property="og:description" content="培养面向未来的科技创新人才。了解 AI 与 STEAM 课程详情，欢迎在线报名与体验反馈。">
+  <meta property="og:url" content="https://eduai-steam.github.io/EduAI/h5/">
+  <meta property="og:image" content="https://eduai-steam.github.io/EduAI/h5/images/share-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- 微信额外兼容 -->
+  <meta itemprop="name" content="AI 与 STEAM 创新课程 | 智创未来教育">
+  <meta itemprop="description" content="培养面向未来的科技创新人才。了解 AI 与 STEAM 课程详情，欢迎在线报名与体验反馈。">
+  <meta itemprop="image" content="https://eduai-steam.github.io/EduAI/h5/images/share-cover.jpg">
+
+  <!-- Twitter / 通用 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 与 STEAM 创新课程 | 智创未来教育">
+  <meta name="twitter:description" content="培养面向未来的科技创新人才。了解 AI 与 STEAM 课程详情，欢迎在线报名与体验反馈。">
+  <meta name="twitter:image" content="https://eduai-steam.github.io/EduAI/h5/images/share-cover.jpg">
+
+  <link rel="icon" href="images/share-cover.jpg" type="image/jpeg">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 首屏 -->
   <section id="hero" class="hero">
     <div class="hero-inner">
+      <img id="siteLogo" class="hero-logo" src="" alt="" hidden>
       <p class="hero-label" id="siteName"></p>
       <h1 class="hero-title" id="siteSlogan"></h1>
       <p class="hero-tagline" id="siteTagline"></p>
@@ -24,7 +50,6 @@
     </div>
   </section>
 
-  <!-- AI & STEAM 简介 -->
   <section id="about" class="section about">
     <div class="container">
       <h2 class="section-title">关于 AI &amp; STEAM 课程</h2>
@@ -33,7 +58,6 @@
     </div>
   </section>
 
-  <!-- 课程列表 -->
   <section id="courses" class="section courses">
     <div class="container">
       <h2 class="section-title">精选课程</h2>
@@ -42,7 +66,6 @@
     </div>
   </section>
 
-  <!-- 报名表单 -->
   <section id="register" class="section register">
     <div class="container">
       <h2 class="section-title">课程报名</h2>
@@ -84,7 +107,6 @@
     </div>
   </section>
 
-  <!-- 留言反馈 -->
   <section id="feedback" class="section feedback">
     <div class="container">
       <h2 class="section-title">体验反馈</h2>
@@ -119,7 +141,6 @@
     </div>
   </section>
 
-  <!-- 页脚 -->
   <footer class="footer">
     <div class="container">
       <p class="footer-name" id="footerName"></p>
@@ -130,7 +151,6 @@
     </div>
   </footer>
 
-  <!-- 课程详情层 -->
   <div class="overlay" id="courseOverlay" aria-hidden="true">
     <div class="overlay-backdrop" id="overlayBackdrop"></div>
     <div class="detail-panel" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
@@ -139,9 +159,9 @@
     </div>
   </div>
 
-  <!-- Toast 提示 -->
   <div class="toast" id="toast" aria-live="polite"></div>
 
+  <script src="site-config.js"></script>
   <script src="courses.js"></script>
   <script src="api.js"></script>
   <script src="app.js"></script>

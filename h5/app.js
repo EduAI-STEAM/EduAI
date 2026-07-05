@@ -4,6 +4,7 @@
   document.addEventListener("DOMContentLoaded", init);
 
   function init() {
+    applyHeroBackground();
     renderSiteInfo();
     renderFeatures();
     renderCourses();
@@ -14,6 +15,27 @@
     bindSmoothScroll();
   }
 
+  function applyHeroBackground() {
+    if (siteInfo.heroImage) {
+      const hero = document.getElementById("hero");
+      const img = new Image();
+      img.onload = function () {
+        hero.style.backgroundImage =
+          "linear-gradient(160deg, rgba(26,58,92,0.88) 0%, rgba(42,82,152,0.85) 100%), url('" + siteInfo.heroImage + "')";
+        hero.style.backgroundSize = "cover";
+        hero.style.backgroundPosition = "center";
+      };
+      img.src = siteInfo.heroImage;
+    }
+  }
+
+  function loadImageHtml(src, alt, className) {
+    if (!src) return "";
+    return (
+      '<img class="' + className + '" src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '" loading="lazy" onerror="this.hidden=true">'
+    );
+  }
+
   function renderSiteInfo() {
     document.getElementById("siteName").textContent = siteInfo.name;
     document.getElementById("siteSlogan").textContent = siteInfo.slogan;
@@ -22,6 +44,16 @@
     document.getElementById("footerPhone").textContent = "电话：" + siteInfo.phone;
     document.getElementById("footerEmail").textContent = "邮箱：" + siteInfo.email;
     document.getElementById("footerAddress").textContent = "地址：" + siteInfo.address;
+
+    const logoEl = document.getElementById("siteLogo");
+    if (siteInfo.logo) {
+      logoEl.src = siteInfo.logo;
+      logoEl.alt = siteInfo.name;
+      logoEl.hidden = false;
+      logoEl.onerror = function () {
+        logoEl.hidden = true;
+      };
+    }
 
     const aboutEl = document.getElementById("aboutText");
     aboutEl.innerHTML = siteInfo.about.map(function (p) {
@@ -47,6 +79,7 @@
     list.innerHTML = courses.map(function (course) {
       return (
         '<article class="course-card" data-id="' + course.id + '" tabindex="0" role="button">' +
+          loadImageHtml(course.image, course.title, "course-cover") +
           '<div class="course-card-header">' +
             "<h3>" + escapeHtml(course.title) + "</h3>" +
             '<span class="course-badge">' + escapeHtml(course.format) + "</span>" +
@@ -90,6 +123,7 @@
 
     const content = document.getElementById("detailContent");
     content.innerHTML =
+      loadImageHtml(course.image, course.title, "detail-cover") +
       "<h2 id=\"detailTitle\">" + escapeHtml(course.title) + "</h2>" +
       '<div class="detail-meta">' +
         "<span>适合年龄：" + escapeHtml(course.age) + "</span>" +
